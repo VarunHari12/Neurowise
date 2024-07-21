@@ -14,7 +14,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 model = tf.keras.models.load_model("./Brain_Scan_Model.keras")
 
-def preprocess_image(image_path):
+def preprocess_image(image_path): # preprocess 
     image = cv.imread(image_path)
     image = cv.resize(image, (32, 32))
     image = image / 255.0
@@ -22,7 +22,7 @@ def preprocess_image(image_path):
     return image
 
 @app.route('/predict', methods=['POST'])
-def predict():
+def predict(): # API endpoint to predict the tumor classification
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
     
