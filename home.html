@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            margin-top: 150px; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 55pt;
+        }
+ 
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111214;
+            flex-direction: column; 
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: 	#080808;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 65px;
+            z-index: 1000;
+            font-size: 23pt;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .navbar a:hover {
+            background-color: #484848;
+        }
+        
+        
+        .container {
+            text-align: center;
+            margin-top: 50px; 
+        }
+
+        .box {
+            background-color: rgb(24, 26, 27);
+            color: white;
+            font-family: 'Inter', sans-serif; 
+            font-size: 35pt;
+            border-radius: 30px;
+            padding: 50px 200px 200px 200px; 
+            width: 900px;
+            margin-bottom: 20px;
+            transform: translateX(600px);
+        }
+
+        .upload-btn {
+            background-color: rgb(24, 26, 27);
+            color: white;
+            padding: 20px 25px;
+            border: 2px solid white; 
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            transform: translateY(30px);
+        }
+        
+        .upload-btn:hover {
+            background-color: #484848;
+        }
+        .about {
+            transform: translateY(50px);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 25pt;
+            padding-bottom: 100px;
+        }
+        #fileInput {
+            display: none;
+        }
+        #home {
+            transform: translateX(30px);
+        }
+        #GH {
+            transform: translateX(60px);
+        }
+        .loader{ 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            display: flex; 
+            align-items: center; 
+              
+          } 
+         
+          span{ 
+            height: 25px; 
+            width: 25px; 
+            margin-right: 10px; 
+            border-radius: 50%; 
+            background-color: white; 
+            animation: loading 1s linear infinite; 
+          } 
+          @keyframes loading { 
+            0%{ 
+             transform: translateX(0); 
+            } 
+            25%{ 
+             transform: translateX(15px); 
+            } 
+            50%{ 
+             transform: translateX(-15px); 
+            } 
+            100%{ 
+             transform: translateX(0); 
+            } 
+              
+          } 
+         span:nth-child(1){ 
+           animation-delay: 0.1s; 
+         } 
+         span:nth-child(2){ 
+           animation-delay: 0.2s; 
+         } 
+         span:nth-child(3){ 
+           animation-delay: 0.3s; 
+         } 
+         span:nth-child(4){ 
+           animation-delay: 0.4s; 
+         } 
+         span:nth-child(5){ 
+           animation-delay: 0.5s; 
+         }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="http://127.0.0.1:5500/Brain-Tumor-Classification/home.html" id = "home">Home</a>
+        <a href="https://github.com/VarunHari12/Brain-tumor-classification" id = "GH">Github</a>
+    </div>
+    <h1>Neurowise</h1>
+    <div class="container">
+        <div class="box">
+            <p><U></U>Upload brain scans below</p>
+            <button class="upload-btn" onclick="openFileWindow()">Upload File</button>
+            <input type="file" id="fileInput" onchange="fileSelected(event)" accept="image/*" multiple>
+            <div id="fileInfo"></div>
+        </div>
+        <div class="about">
+            <h2> About </h2>
+            <p>After a brain scan is uploaded, the user will be informed if the scan is a glioma, 
+                meningioma, pituitary or no tumor. After this, the user will recieve a full treatment plan for their tumor.</p>
+        </div>  
+    </div>
+<script src="upload.js"></script>
+</body>
+</html>
